@@ -9,7 +9,7 @@ functionality and published to a public registry.
 
 (Don't use this for your main project, you'll most likely regret it)
 
-## Features
+**Features**
 
 - Zero Configuration
 - Minimal maintenence
@@ -20,10 +20,41 @@ functionality and published to a public registry.
 
 ## <a name="Use"></a> Use
 
+### `npm init @pure my-awesome-module`
+
+That's it.
+
 ```
-$ npm init @pure/module <moduleName>
-$ cd <moduleName>
-$ npm install
+$ tree my-awesome-module
+my-awesome-module/
+├── LICENSE
+├── README.md
+├── index.js
+├── package.json
+└── test.js
+```
+
+## Options
+
+I lied, here is some "configuration"
+
+**PUBLIC_REPOPREFIX**
+
+```bash
+git config --global npm.repoPrefix "https://github.com/telamon
+```
+
+**AUTHOR**
+
+```bash
+git config --global user.name "First Last"
+git config --global user.email "username@provider.tld"
+```
+
+**DONATION_TEXT**
+
+```bash
+git config --global npm.donation ~/Documents/advertisment.md
 ```
 
 ## Templates
@@ -55,7 +86,22 @@ something is missing then don't hesitate to ask.
 
 ## Use
 
+BBQbash
+$ npm install MODULE_NAME
+BBQ
+
+BBQjs
+const mod = require('MODULE_NAME')
+mod.doMagic() // => Result
+BBQ
+
+## Donations
+
+DONATION_TEXT
+
 ## Changelog
+
+### 0.1.0 first release
 
 ## Contributing
 
