@@ -11,7 +11,7 @@
     "test": "tape test.js",
     "lint": "standard",
     "debug": "node inspect $(npm bin)/tape test.js",
-    "prepublishOnly": "standard && npm test"
+    "prepublishOnly": "standard"
   },
   "dependencies": {},
   "devDependencies": {
