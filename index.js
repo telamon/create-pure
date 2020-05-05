@@ -98,13 +98,14 @@ module.exports.readGitConfig = readGit
 
 try {
   if (process.mainModule.filename !== __filename) {
-    log('Pure module generator')
     const dst = join(process.cwd(), process.argv[2] || '.')
     const moduleName = process.argv[2]
+    generate(dst, moduleName)
+    /*
     const rl = createInterface({ input: process.stdin, output: process.stdout })
     rl.question('Description: ', desc => {
-      generate(dst, moduleName, desc)
     })
+    */
   }
 } catch (err) {
   log(err)
