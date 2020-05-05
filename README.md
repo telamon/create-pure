@@ -38,10 +38,10 @@ my-awesome-module/
 
 I lied, here is some "configuration"
 
-**PUBLIC_REPOPREFIX**
+**REPO_PREFIX**
 
 ```bash
-git config --global npm.repoPrefix "https://github.com/telamon
+git config --global npm.repoPrefix "https://github.com/telamon"
 ```
 
 **AUTHOR**
@@ -122,8 +122,8 @@ TODO: Multiple choice prompt
 - Open "this version" (MIT)
 - Open "all future versions" (AGPL)
 
-Only AGPL available right now cause that's the one I use, open an issue
-if you need something else, I don't mind patching it in. :thumbsup:
+Only AGPL available right now cause that's the one I use.
+Open an issue if you need something else. :thumbsup:
 
 ```
 LICENSE_TEXT
@@ -151,24 +151,24 @@ TODO:
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/telamon/pure-random-number"
+    "url": "git://REPO_PREFIX/MODULE_NAME"
   },
   "author": "AUTHOR",
-  "license": "LICENSE_SPDX"
+  "license": "LICENSE_SPDX",
+  "bugs": {
+    "url": "REPO_PREFIX/MODULE_NAME"
+  },
+  "homepage": "REPO_PREFIX/MODULE_NAME"
 }
 ```
 
 ### `index.js`
-
-TODO: should be `index.mjs` for type modules.
 
 ```js
 // SPDX-License-Identifier: LICENSE_SPDX
 ```
 
 ### `test.js`
-
-TODO: test-suite should be optional/ compatible with mjs
 
 ```js
 const test = require('tape')
@@ -216,4 +216,4 @@ Only changesets by human contributors will be accepted.
 
 ## License
 
-`AGPL-3.0-or-later` Tony Ivanov 2020
+[`AGPL-3.0-or-later` Tony Ivanov 2020](./LICENSE)

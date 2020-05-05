@@ -39,12 +39,21 @@ function generate (dst, moduleName, desc, readme) {
 
   readme = (readme || readFileSync(join(__dirname, 'README.md'))).toString('utf8')
   const license = readFileSync(join(__dirname, 'LICENSE')).toString('utf8')
+  const donationFile = readGit('npm.donation')
+  let donation = '```git config --global npm.donation absolute/path/to/textfile```'
+  try {
+    if (donationFile) donation = readFileSync(donationFile)
+  } catch (err) { console.error('Failed to read donationFile:', donationFile, err) }
+
   const substitues = {
     MODULE_NAME: moduleName,
     MODULE_DESC: desc || 'Tagline goes here',
     LICENSE_SPDX: 'AGPL-3.0-or-later',
     LICENSE_TEXT: license,
-    AUTHOR: `${readGit('user.name')} <${readGit('user.email')}>` // get this from git
+    AUTHOR: `${readGit('user.name')} <${readGit('user.email')}>`, // get this from git
+    DONATION_TEXT: donation,
+    REPO_PREFIX: readGit('npm.repoPrefix'),
+    YEAR: new Date().getFullYear()
   }
 
   let blockBuffer = ''
@@ -75,6 +84,10 @@ function generate (dst, moduleName, desc, readme) {
       outFile = null
     } else blockBuffer += '\n' + line
   }
+  const deps = 'standard tape'
+  const initCmd = `cd ${dst} && (yarn add -D ${deps} || npm i --save-dev ${deps})`
+  log('Running command:\n', initCmd)
+  log(execSync(initCmd).toString('utf8'))
   log('done!\n')
 }
 module.exports = generate
@@ -87,6 +100,6 @@ try {
     generate(dst, moduleName)
   }
 } catch (err) {
-  log(err.message)
+  log(err)
   process.exit(1)
 }
