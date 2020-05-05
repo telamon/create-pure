@@ -27,6 +27,8 @@ That's it.
 ```
 $ tree my-awesome-module
 my-awesome-module/
+├── .editorconfig
+├── .gitignore
 ├── LICENSE
 ├── README.md
 ├── index.js

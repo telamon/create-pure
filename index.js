@@ -77,8 +77,9 @@ function generate (dst, moduleName, desc, readme) {
       for (const k in substitues) {
         blockBuffer = blockBuffer.replace(new RegExp(k, 'g'), substitues[k])
       }
+      log('Generating', tgt)
       writeFileSync(tgt, blockBuffer)
-      log('Wrote', tgt, '\n', blockBuffer)
+      // log('Wrote', tgt, '\n', blockBuffer)
       blockBuffer = ''
       insideBlock = false
       outFile = null
