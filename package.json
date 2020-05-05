@@ -1,5 +1,5 @@
 {
-  "name": "@pure/create-module",
+  "name": "create-pure",
   "version": "1.0.0",
   "description": "Template to generate low maintenence JS modules",
   "main": "index.js",
