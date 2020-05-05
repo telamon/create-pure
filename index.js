@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 // SPDX-License-Identifier: AGPL-3.0-or-later
-const { mkdirSync, readdirSync, readFileSync, writeFileSync } = require('fs')
+const { readdirSync, readFileSync, writeFileSync } = require('fs')
 const { join } = require('path')
 const { execSync } = require('child_process')
 
 const log = console.log.bind('pure/module')
+/*
 function mkdir (dir) {
   try {
     mkdirSync(dir, { recursive: true, mode: 0o755 })
@@ -14,6 +15,7 @@ function mkdir (dir) {
     }
   }
 }
+*/
 
 function dirIsEmpty (directory) {
   try {

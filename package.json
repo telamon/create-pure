@@ -1,6 +1,6 @@
 {
   "name": "@pure/create-module",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Template to generate low maintenence JS modules",
   "main": "index.js",
   "bin": {
