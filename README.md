@@ -75,6 +75,7 @@ something is missing then don't hesitate to ask.
 !package.json
 !index.js
 !test.js
+!.editorconfig
 ```
 
 ### `README.md`
@@ -177,6 +178,19 @@ test('desc', t => {
 })
 ```
 
+### `.editorconfig`
+
+```
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+```
+
 ## Motivation
 
 A Git repository is an inter dimensional holy ground, period.
@@ -193,9 +207,6 @@ introspection for other people.
 
 If you find yourself wanting for more, then maybe it's time for you to split
 your code into a separate module _- or simply purity might not be for you._
-
-## Donations
-
 
 ## Contributing
 
