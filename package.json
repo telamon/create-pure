@@ -1,0 +1,44 @@
+{
+  "name": "@pure/create-module",
+  "version": "0.1.0",
+  "description": "Template to generate low maintenence JS modules",
+  "main": "index.js",
+  "bin": {
+    "create-module": "index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "tape test.js",
+    "lint": "standard",
+    "debug": "node inspect $(npm bin)/tape test.js",
+    "prepublishOnly": "standard && npm test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "standard": "^14.3.3",
+    "tape": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/telamon/pure-module.git"
+  },
+  "keywords": [
+    "create",
+    "pure",
+    "module"
+  ],
+  "author": {
+    "name": "Tony Ivanov",
+    "email": "telamohn@pm.me"
+  },
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/telamon/pure-module/issues"
+  },
+  "homepage": "https://github.com/telamon/pure-module#readme",
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
+}
