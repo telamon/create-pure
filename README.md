@@ -136,7 +136,6 @@ LICENSE_TEXT
 TODO:
 
 - [ ] make `test` and `debug` optional via git.config
-- [ ] Repo-url via `git config --global pure.platform`
 - [ ] type: "module"
 
 ```json
@@ -195,7 +194,7 @@ trim_trailing_whitespace = true
 
 ## Motivation
 
-A Git repository is an inter dimensional holy ground, period.
+A Git repository is an interdimensional holy ground, period.
 
 It is a shared resource between you and countless other individuals present and future - each with their own configurations, workflows, tooling, integrations and platforms.
 
