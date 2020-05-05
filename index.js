@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 // SPDX-License-Identifier: AGPL-3.0-or-later
-const { readdirSync, readFileSync, writeFileSync } = require('fs')
+const { mkdirSync, readdirSync, readFileSync, writeFileSync } = require('fs')
 const { join } = require('path')
 const { execSync } = require('child_process')
+const { createInterface } = require('readline')
 
 const log = console.log.bind('pure/module')
-/*
 function mkdir (dir) {
   try {
     mkdirSync(dir, { recursive: true, mode: 0o755 })
@@ -15,7 +15,6 @@ function mkdir (dir) {
     }
   }
 }
-*/
 
 function dirIsEmpty (directory) {
   try {
@@ -37,8 +36,9 @@ function readGit (prop) {
 function generate (dst, moduleName, desc, readme) {
   if (!dirIsEmpty(dst)) throw new Error('Destination path not empty, refusing to overwrite')
   if (!moduleName) throw new Error('Please specify a module name')
-  log(`Generating module ${dst}...`)
 
+  log(`Generating module ${dst}...`)
+  mkdir(dst)
   readme = (readme || readFileSync(join(__dirname, 'README.md'))).toString('utf8')
   const license = readFileSync(join(__dirname, 'LICENSE')).toString('utf8')
   const donationFile = readGit('npm.donation')
@@ -90,17 +90,20 @@ function generate (dst, moduleName, desc, readme) {
   const deps = 'standard tape'
   const initCmd = `cd ${dst} && (yarn add -D ${deps} || npm i --save-dev ${deps})`
   log('Running command:\n', initCmd)
-  log(execSync(initCmd).toString('utf8'))
+  execSync(initCmd).toString('utf8')
   log('done!\n')
 }
 module.exports = generate
 module.exports.readGitConfig = readGit
 
 try {
-  if (process.mainModule.filename === __filename) {
+  if (process.mainModule.filename !== __filename) {
     const dst = join(process.cwd(), process.argv[2] || '.')
     const moduleName = process.argv[2]
-    generate(dst, moduleName)
+    const rl = createInterface({ input: process.stdin, output: process.stdout })
+    rl.question('Description: ', desc => {
+      generate(dst, moduleName, desc)
+    })
   }
 } catch (err) {
   log(err)

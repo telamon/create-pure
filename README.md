@@ -20,7 +20,7 @@ functionality and published to a public registry.
 
 ## <a name="Use"></a> Use
 
-### `npm init @pure my-awesome-module`
+### `npm init telamon/pure my-awesome-module`
 
 That's it.
 
