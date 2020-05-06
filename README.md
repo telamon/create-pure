@@ -1,3 +1,4 @@
+`build | pass` `code style | standard`
 # Pure JavaScript Module
 
 > Template to generate low maintenence JS modules
@@ -38,7 +39,17 @@ my-awesome-module/
 
 ## Options
 
-I lied, here is some "configuration"
+Zero conf? I lied, there is some "configuration".
+
+>If the following options do not satisfy your cutomization needs
+> then **fork off**!
+
+No seriously fork this repo, edit the **Templates** section of this `README.md`
+and use it with:
+
+```bash
+$ npm init username/pure my-awesome-module
+```
 
 **REPO_PREFIX**
 
@@ -78,6 +89,35 @@ something is missing then don't hesitate to ask.
 !index.js
 !test.js
 !.editorconfig
+```
+
+### `index.js`
+
+```js
+// SPDX-License-Identifier: LICENSE_SPDX
+```
+
+### `test.js`
+
+```js
+const test = require('tape')
+
+test('desc', t => {
+  t.end()
+})
+```
+
+### `.editorconfig`
+
+```
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
 ```
 
 ### `README.md`
@@ -161,35 +201,6 @@ TODO:
   },
   "homepage": "REPO_PREFIX/MODULE_NAME"
 }
-```
-
-### `index.js`
-
-```js
-// SPDX-License-Identifier: LICENSE_SPDX
-```
-
-### `test.js`
-
-```js
-const test = require('tape')
-
-test('desc', t => {
-  t.end()
-})
-```
-
-### `.editorconfig`
-
-```
-root = true
-
-[*]
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
 ```
 
 ## Motivation
