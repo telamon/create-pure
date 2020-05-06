@@ -1,12 +1,13 @@
-`build | pass` `code style | standard`
+[`pure | 📦`](https://github.com/telamon/create-pure)
+[`code style | standard`](https://standardjs.com/)
 # Pure JavaScript Module
 
-> Template to generate low maintenence JS modules
+> Minimalistic template to generate low maintenence JS modules
 
 An opinionated template to optimize workflow for stressed out minimalists.
 
 The template is intended for modules whose main purpose is to _export_
-functionality and published to a public registry.
+functionality and are published to a public registry.
 
 (Don't use this for your main project, you'll most likely regret it)
 
@@ -14,6 +15,7 @@ functionality and published to a public registry.
 
 - Zero Configuration
 - Minimal maintenence
+- Platform independent
 - Strict reverse ignore policy
 - [Standard JS](https://standardjs.com/)
 - Embedded [changelog](https://keepachangelog.com/en/1.0.0/)
@@ -118,11 +120,14 @@ indent_size = 2
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
+insert_final_newline = true
 ```
 
 ### `README.md`
 
 ```markdown
+[`pure | 📦`](https://github.com/telamon/create-pure)
+[`code style | standard`](https://standardjs.com/)
 # MODULE_NAME
 
 > MODULE_DESC
@@ -154,7 +159,9 @@ Only changesets by human contributors will be accepted.
 
 ## License
 
-LICENSE_SPDX AUTHOR YEAR
+[LICENSE_SPDX](./LICENSE)
+
+AUTHOR &#x1f12f; YEAR
 ```
 
 ### `LICENSE`
@@ -205,20 +212,86 @@ TODO:
 
 ## Motivation
 
-A Git repository is an interdimensional holy ground, period.
+### TL;DR;
+
+I am exploring the effects of
+
+```bash
+echo '*' > .gitignore
+```
+
+### The problem; Time
+
+Imagine that instead of publishing a piece of functionality, you're building a time-capsule.
+There's no way to tell when or who will stumble upon it's contents nor
+to what ends it will be used.
+
+Ask yourself, if your current commit were to be visited 10 years from now
+how much of the looks and function will have survived the rot and decay of time?
+
+Also new repositories are created every second, there is a real risk that
+your repo might not be visited for another couple of years or even
+during your lifespan.
+
+The fear of low popularity drives some us to extensivly decorate
+our repositories with integrations, badges, remotely linked images.
+
+It's a special kind of madness called "Marketing".
+It costs effort, dosen't really help indexing and in the end only produces more noise for the visitor.
+
+I want to try a different strategy -
+I believe that the code is the most significant component of any repository
+and the only piece that should be worth the effort.
+
+### Proposed solution; Rules
+
+> §1 A Git repository is an interdimensional holy ground, period.
 
 It is a shared resource between you and countless other individuals present and future - each with their own configurations, workflows, tooling, integrations and platforms.
 
-It is pointless to assume which decorations will be popular tomorrow
-or guess which services will still exist in 10 years - the more you add the more you commit to maintain; like a loop without a break.
+The more you add the more you commit to maintain
 
-I believe that the code is the most significant component of any repository
-and the only component worth my time. I also strongly suggest
-that it should be written in the same form that it is exported to stop messing up
-introspection for other people.
+> §2 The code that is exported must be the same that is written
 
-If you find yourself wanting for more, then maybe it's time for you to split
-your code into a separate module _- or simply purity might not be for you._
+Transpilation in modules sucks so much it deserves at least 3 separate articles of it's own.
+Please stop publishing modules written with X but exporting Y.
+It messes up introspection, consistency and all in all just makes your module more time sensitive.
+
+> §3 Avoid redundant links to external resources
+
+If a dependency is not central to your modules function then leave it out.
+
+Consider exporting a lower level interface with zero dependencies
+rather than a high-level-does-it-all with the help of external deps.
+
+Adding dependencies is the easy part, getting rid of them is a great
+incentive to fork.
+
+### Rewarding Pragmatism
+
+To be human is to err and find compromise.
+If you're using this template or make an honest attempt
+to follow the proposed guidelines then you deserve the badge of purity!
+
+_Behold the anti-badge-badge!_
+
+[`pure | 📦`](https://github.com/telamon/create-pure)
+
+With this we can proudly show that once again hypocrisy
+and ideals go hand in hand.
+
+On a sidenote: I've "purified" that badge, it comes at the cost of reduced
+visual quality but with improved anonymity and I am confident that the looks wont degrade much in the years to come.
+
+P.S. On the subject of emoji I am stumped. Hieroglyphs have previously
+shown great resillience and these ones are even standardized.
+- make your own judgements.
+
+## Changelog
+### `1.1.x`
+- Added Unicode-badges - the breadcrumbs of ideals..
+- Removed (yarn/npm install) command
+- Added &#x1f12f;-symbol if you can see it, then this text has traveled through time.
 
 ## Contributing
 
@@ -228,4 +301,6 @@ Only changesets by human contributors will be accepted.
 
 ## License
 
-[`AGPL-3.0-or-later` Tony Ivanov 2020](./LICENSE)
+[`AGPL-3.0-or-later`](./LICENSE)
+
+Tony Ivanov &#x1f12f; 2020
