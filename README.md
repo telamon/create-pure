@@ -284,11 +284,14 @@ On a sidenote: I've "purified" that badge, it comes at the cost of reduced
 visual quality but with improved anonymity and I am confident that the looks wont degrade much in the years to come.
 
 P.S. On the subject of emoji I am stumped. Hieroglyphs have previously
-shown great resillience and these ones are even standardized.
-- make your own judgements.
+shown great resillience and these ones are even standardized. Decide for yourself
+
+Plain ASCII badge:
+
+[`pure | module`](https://github.com/telamon/create-pure)
 
 ## Changelog
-### `1.1.x`
+### `1.1.0`
 - Added Unicode-badges - the breadcrumbs of ideals..
 - Removed (yarn/npm install) command
 - Added &#x1f12f;-symbol if you can see it, then this text has traveled through time.
