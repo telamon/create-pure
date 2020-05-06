@@ -55,10 +55,11 @@ function generate (dst, moduleName, desc, readme) {
     AUTHOR: `${readGit('user.name')} <${readGit('user.email')}>`, // get this from git
     DONATION_TEXT: donation,
     REPO_PREFIX: readGit('npm.repoPrefix'),
-    YEAR: new Date().getFullYear()
+    YEAR: new Date().getFullYear(),
+    BBQ: '```'
   }
 
-  let blockBuffer = ''
+  let blockBuffer = []
   let sectionTemplates = false
   let insideBlock = false
   let outFile = null
@@ -76,21 +77,22 @@ function generate (dst, moduleName, desc, readme) {
       if (line.match(/^```\S*$/)) insideBlock = true
     } else if (line.match(/^```$/)) {
       const tgt = join(dst, outFile)
+      let text = blockBuffer.join('\n')
       for (const k in substitues) {
-        blockBuffer = blockBuffer.replace(new RegExp(k, 'g'), substitues[k])
+        text = text.replace(new RegExp(k, 'g'), substitues[k])
       }
       log('Generating', tgt)
-      writeFileSync(tgt, blockBuffer)
-      // log('Wrote', tgt, '\n', blockBuffer)
-      blockBuffer = ''
+      writeFileSync(tgt, text)
+      // log('Wrote', tgt, '\n', text)
+      blockBuffer = []
       insideBlock = false
       outFile = null
-    } else blockBuffer += '\n' + line
+    } else blockBuffer.push(line)
   }
-  const deps = 'standard tape'
-  const initCmd = `cd ${dst} && (yarn add -D ${deps} || npm i --save-dev ${deps})`
-  log('Running command:\n', initCmd)
-  execSync(initCmd).toString('utf8')
+  // const deps = 'standard tape'
+  // const initCmd = `cd ${dst} && (yarn add -D ${deps} || npm i --save-dev ${deps})`
+  // log('Running command:\n', initCmd)
+  // execSync(initCmd).toString('utf8')
   log('done!\n')
 }
 module.exports = generate
@@ -103,6 +105,7 @@ try {
     const rl = createInterface({ input: process.stdin, output: process.stdout })
     rl.question('Description: ', desc => {
       generate(dst, moduleName, desc)
+      process.exit(0)
     })
   }
 } catch (err) {
