@@ -41,7 +41,7 @@ function generate (dst, moduleName, desc, readme) {
   mkdir(dst)
   readme = (readme || readFileSync(join(__dirname, 'README.md'))).toString('utf8')
   const license = readFileSync(join(__dirname, 'LICENSE')).toString('utf8')
-  const donationFile = readGit('npm.donation')
+  const donationFile = readGit('user.donation')
   let donation = '```git config --global npm.donation absolute/path/to/textfile```'
   try {
     if (donationFile) donation = readFileSync(donationFile)
@@ -54,7 +54,7 @@ function generate (dst, moduleName, desc, readme) {
     LICENSE_TEXT: license,
     AUTHOR: `${readGit('user.name')} <${readGit('user.email')}>`, // get this from git
     DONATION_TEXT: donation,
-    REPO_PREFIX: readGit('npm.repoPrefix'),
+    REPO_PREFIX: readGit('user.platform'),
     YEAR: new Date().getFullYear(),
     BBQ: '```'
   }

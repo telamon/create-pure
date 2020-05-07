@@ -43,20 +43,10 @@ my-awesome-module/
 
 Zero conf? I lied, there is some "configuration".
 
->If the following options do not satisfy your cutomization needs
-> then **fork off**!
-
-No seriously fork this repo, edit the **Templates** section of this `README.md`
-and use it with:
-
-```bash
-$ npm init username/pure my-awesome-module
-```
-
 **REPO_PREFIX**
 
 ```bash
-git config --global npm.repoPrefix "https://github.com/telamon"
+git config --global user.platform "https://github.com/telamon"
 ```
 
 **AUTHOR**
@@ -69,7 +59,19 @@ git config --global user.email "username@provider.tld"
 **DONATION_TEXT**
 
 ```bash
-git config --global npm.donation ~/Documents/advertisment.md
+git config --global user.donation ~/Documents/advertisment.md
+```
+
+#### DIY
+
+If the options above do not satisfy your cutomization needs
+then **fork off**!
+
+No seriously fork this repo, edit the **Templates** section of this `README.md`
+and use it with:
+
+```bash
+$ npm init username/pure my-awesome-module
 ```
 
 ## Templates
@@ -153,7 +155,8 @@ DONATION_TEXT
 
 ## Contributing
 
-By making a pull request, you agree to release your modifications under the license stated in the next section.
+By making a pull request, you agree to release your modifications under
+the license stated in the next section.
 
 Only changesets by human contributors will be accepted.
 
@@ -161,7 +164,7 @@ Only changesets by human contributors will be accepted.
 
 [LICENSE_SPDX](./LICENSE)
 
-AUTHOR &#x1f12f; YEAR
+YEAR &#x1f12f; AUTHOR
 ```
 
 ### `LICENSE`
@@ -291,6 +294,8 @@ Plain ASCII badge:
 [`pure | module`](https://github.com/telamon/create-pure)
 
 ## Changelog
+### `1.1.1`
+- Renamed git-config variables
 ### `1.1.0`
 - Added Unicode-badges - the breadcrumbs of ideals..
 - Removed (yarn/npm install) command
