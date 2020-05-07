@@ -52,7 +52,8 @@ function generate (dst, moduleName, desc, readme) {
     MODULE_DESC: desc || 'Tagline goes here',
     LICENSE_SPDX: 'AGPL-3.0-or-later',
     LICENSE_TEXT: license,
-    AUTHOR: `${readGit('user.name')} <${readGit('user.email')}>`, // get this from git
+    AUTHOR_EMAIL: `${readGit('user.name')} <${readGit('user.email')}>`, // get this from git
+    AUTHOR: `${readGit('user.name')}`, // get this from git
     DONATION_TEXT: donation,
     REPO_PREFIX: readGit('user.platform'),
     YEAR: new Date().getFullYear(),
@@ -82,6 +83,7 @@ function generate (dst, moduleName, desc, readme) {
         text = text.replace(new RegExp(k, 'g'), substitues[k])
       }
       log('Generating', tgt)
+      text = text + '\n' // Empty line at EOF
       writeFileSync(tgt, text)
       // log('Wrote', tgt, '\n', text)
       blockBuffer = []

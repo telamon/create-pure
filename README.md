@@ -93,7 +93,12 @@ something is missing then don't hesitate to ask.
 !index.js
 !test.js
 !.editorconfig
+!.gitignore
 ```
+
+I use `git clean -fdxn` to eyeball if I need to tweak
+the `.gitignore` in a project, if you use this method
+make sure _to not omit_ the `n` flag..
 
 ### `index.js`
 
