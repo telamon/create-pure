@@ -11,6 +11,8 @@ functionality and are published to a public registry.
 
 (Don't use this for your main project, you'll most likely regret it)
 
+Read the full [Motivation](https://github.com/telamon/create-pure#motivation) for more info.
+
 **Features**
 
 - Zero Configuration
